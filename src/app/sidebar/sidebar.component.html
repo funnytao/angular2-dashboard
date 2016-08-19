@@ -43,11 +43,8 @@
     <li class="min" (click)="onToggle()"><i class="{{globalService.toggle? 'ion-arrow-right-b' : 'ion-arrow-left-b'}}"></i></li>
     <li (click)="onClickSignOut()"><i class="ion-power"></i></li>
     <li><div class="informer">3</div><i class="ion-email"></i></li>
-<<<<<<< HEAD
     <li (click)="navRoute('/page/chat')"><div class="informer" *ngIf="unread>0">{{unread}}</div><i class="ion-chatbubble-working"></i></li>
-=======
     <li><div class="informer">3</div><i class="ion-chatbubble-working"></i></li>
->>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
   </ul>
 </div>
 <div class="signout-window {{signOutShowed ? 'open' : ''}}">
