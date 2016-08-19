@@ -1,0 +1,66 @@
+<div class="login-window">
+  <form *ngIf="!reg" #userCreds="ngForm" class="login-body">
+    <div class="col-md-12 login-title">
+      <strong>Log In</strong> to your account
+    </div>
+    <div class="col-md-12">
+      <input type="text" placeholder="E-mail" class="form-control" [(ngModel)]="logUser.log_email" name="log_email" id="log_email" (keyup)="loginValid()">
+    </div>
+    <div class="col-md-12">
+      <input type="password" placeholder="Password" class="form-control" [(ngModel)]="logUser.log_password" name="log_password" id="log_password" (keyup)="loginValid()">
+    </div>
+    <div *ngIf="error!=''" class="col-md-12">
+      <div class="alert alert-danger" role="alert">
+        <div *ngFor="let errors of error">
+          {{errors}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-info btn-block" type="submit" id="btn-login" (click)="login()" [disabled]="error.length!=0">Log In</button>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-danger btn-block" type="button" id="btn-google" (click)="googleLogin()">Google+</button>
+    </div>
+    <div class="col-md-12">
+      <div class="login-or">OR</div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-success btn-block" type="button" id="btn-reg" (click)="register()">Register</button>
+    </div>
+  </form>
+
+  <form  *ngIf="reg" #regForm="ngForm" class="login-body">
+    <div class="col-md-12 login-title">
+      <strong>Register</strong> a new account
+    </div>
+    <div class="col-md-12">
+      <input type="text" placeholder="E-mail" class="form-control" [(ngModel)]="regUser.email" name="email" id="email" (keyup)="regFormValid()">
+    </div>
+    <div class="col-md-12">
+      <input type="text" placeholder="Username" class="form-control" [(ngModel)]="regUser.username" name="username" id="username" (keyup)="regFormValid()">
+    </div>
+    <div class="col-md-12">
+      <input type="password" placeholder="Password" class="form-control" [(ngModel)]="regUser.password" name="password" id="password" (keyup)="regFormValid()">
+    </div>
+    <div class="col-md-12">
+      <input type="password" placeholder="Password Again" class="form-control" [(ngModel)]="regUser.repassword" name="repassword" id="repassword" (keyup)="regFormValid()">
+    </div>
+    <div *ngIf="regerror!=''" class="col-md-12">
+      <div class="alert alert-danger" role="alert">
+        <div *ngFor="let errors of regerror">
+          {{errors}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-success btn-block"f (click)="registerValid()" [disabled]="regerror.length!=0">Register</button>
+    </div>
+    <div class="col-md-12">
+      <div class="login-or">OR</div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-info btn-block" id="btn-reg" type="button" (click)="register()">Login</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,258 @@
+.page-dashboard {
+  position: relative;;
+  margin-left: 220px;
+  height: auto;
+  background-color: #f5f5f5;
+  padding: 0;
+  padding-top: 50px;
+}
+
+div.page-toggle {
+  margin-left: 50px;
+}
+
+@media screen and (max-width:1025px) {
+  .page-dashboard {
+    margin-left: 0;
+    padding-top: 100px;
+  }
+}
+
+.ticket-panel {
+  float: left;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #f5f5f5;
+}
+
+.ticket-panel-title {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  padding: 13px 15px 15px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid #DDD;
+  border-top: 1px solid #DDD;
+  font-size: 12px;
+}
+
+.ticket-tool {
+  width: 100%;
+  float: left;
+}
+
+.ticket-new {
+  margin-right: 5%;
+  width: 40%;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.ticket-new button {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .ticket-new, .ticket-search {
+    width: 100% !important;
+  }
+
+  .ticket-tool {
+    margin-bottom: 10px;
+  }
+}
+
+.ticket-search {
+  float: left;
+  width: 55%;
+}
+
+.ticket-search input {
+  width: 100%;
+  height: 34px;
+}
+
+.ticket-panel-body {
+  height: 100%;
+}
+
+.ticket-panel-title h3 {
+  margin: 0;
+}
+
+.ticket-list {
+  width: 620px;
+  float: left;
+  padding: 20px 10px 10px 10px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-right: 1px solid #DDD;
+  min-height: 100%;
+}
+
+.ticket-list-panel {
+  float: left;
+  width: 100%;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  border: 0px;
+  border-top: 2px solid #E5E5E5;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.btn-filter {
+  border-radius: 0;
+}
+
+.ticket-employee:hover, .ticket-customer:hover, .ticket-title:hover, .ticket-date:hover {
+  cursor: pointer;
+}
+
+.ticket-employee {
+  float: left;
+  width: 25%;
+}
+
+.ticket-customer {
+  float: left;
+  width: 25%;
+}
+
+.ticket-title {
+  float: left;
+  width: 35%;
+}
+
+.ticket-date {
+  float: left;
+  width: 15%;
+}
+
+.ticket-detail {
+  margin-left: 620px;
+  padding: 76px 20px 20px 20px;
+}
+
+.ticket-list-comp, .ticket-list-heading {
+  background: white;
+  text-align: center;
+  float: left;
+  padding: 10px 15px 10px 13px;
+  width: 100%;
+  line-height: 20px;
+  border-left: 3px solid #1caf9a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ticket-list-comp:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+div.ticket-list-comp.closed {
+  border-left: 3px solid grey;
+  background-color: #f5f5f5;
+}
+
+div.ticket-list-comp.ticket-nav {
+  border-left: 0px;
+}
+
+div.ticket-list-comp.ticket-nav:hover {
+  background-color: white;
+  cursor: default;
+}
+
+.ticket-list-heading {
+  font-weight: bold;
+  background: rgb(241, 245, 249);
+  border-left: 3px solid black;
+}
+
+.ticket-content {
+  float: left;
+  width: 100%;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  border: 0px;
+  border-top: 2px solid #E5E5E5;
+  position: relative;
+  background-color: white;
+  /*padding: 10px 20px;*/
+  padding-top: 0;
+}
+
+.ticket-heading, .ticket-description, .ticket-reply, .ticket-manage {
+  width: 100%;
+  float: left;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ticket-manage {
+  border-bottom: 0;
+}
+
+.ticket-heading {
+  padding: 0 10px;
+  background: rgb(241, 245, 249);
+}
+
+.ticket-heading h3 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+  display: block;
+  float: left;
+  margin-top: 10px;
+  margin-left: 0;
+}
+
+div.ticket-heading .pull-right {
+  margin-top: 13px;
+}
+
+div.ticket-description h3 {
+  margin-top: 0px;
+  font-weight: 600;
+}
+
+div.ticket-description small {
+  margin-top: 6px;
+}
+
+.ticket-manage label {
+  background: rgb(91, 192, 222);
+  color: white;
+}
+
+.btn-solve {
+  float: right !important;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+    .ticket-list {
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+      min-height: 10%;
+    }
+
+    .ticket-detail {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .ticket-content {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn-solve {
+      margin-top: 0;
+    }
+
+}
