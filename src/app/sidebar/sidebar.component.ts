@@ -18,7 +18,10 @@ export class SidebarComponent implements OnInit {
   width: number;
   userData: FirebaseObjectObservable<any>;
   signOutShowed = false;
+<<<<<<< HEAD
   unread: FirebaseObjectObservable<any>;
+=======
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
 
   @ViewChild('modal')
     modal: ModalComponent;
@@ -27,6 +30,7 @@ export class SidebarComponent implements OnInit {
     this.width = window.innerWidth;
     var url = '/private/'+localStorage.getItem('uid');
     this.userData = af.database.object(url);
+<<<<<<< HEAD
     af.database.object(url).subscribe(num => {
       this.unread = num.unread;
       console.log(this.unread);
@@ -39,6 +43,9 @@ export class SidebarComponent implements OnInit {
           uid: localStorage.getItem('uid')
         });
       }
+=======
+    af.database.object(url).subscribe(item => {
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
       globalService.username = item.username;
     });
   }
@@ -72,7 +79,10 @@ export class SidebarComponent implements OnInit {
     }
     if (newimg!='') {
       this.af.database.object('/private/'+localStorage.getItem('uid')).update({ imgUrl: newimg });
+<<<<<<< HEAD
       this.globalService.imgUrl = newimg;
+=======
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
     }
     this.modal.close();
   }

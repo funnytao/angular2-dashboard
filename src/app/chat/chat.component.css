@@ -171,6 +171,7 @@ div.page-toggle {
 .message-frame.host .text:hover:before {
   border-left-color: #BBB;
 }
+<<<<<<< HEAD
 
 div.chat-contact ul li a:hover {
   cursor: pointer;
@@ -209,3 +210,5 @@ span.friend_list {
 a.friend_list:hover {
   cursor: pointer;
 }
+=======
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507

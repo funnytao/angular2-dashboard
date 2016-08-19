@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../shared/global.service';
+<<<<<<< HEAD
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { KeysPipe } from './friend.pipe';
 import { RecentChatPipe } from './recentChat.pipe';
 import { OrderBy } from './sort.pipe';
+=======
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
 declare var jQuery: any;
 
 @Component({
   moduleId: module.id,
   selector: 'app-chat',
   templateUrl: 'chat.component.html',
+<<<<<<< HEAD
   styleUrls: ['chat.component.css'],
   pipes: [KeysPipe, RecentChatPipe, OrderBy]
 })
@@ -36,10 +40,18 @@ export class ChatComponent implements OnInit {
     });
     this.user_id = localStorage.getItem('uid');
   }
+=======
+  styleUrls: ['chat.component.css']
+})
+export class ChatComponent implements OnInit {
+
+  constructor(private globalService: GlobalService) {}
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
 
   ngOnInit() {
   }
 
+<<<<<<< HEAD
   friendExist(value) {
     return !this.friend_list[value];
   }
@@ -123,4 +135,6 @@ export class ChatComponent implements OnInit {
     // console.log(this.message_list.length);
   }
 
+=======
+>>>>>>> ef350b95d65b9ad28f7f91bb006de25ee747b507
 }
