@@ -1,0 +1,63 @@
+<div class="navgation">
+  <div class="page-sidebar {{globalService.navClicked && width<=1025 ? 'nav-responsive': globalService.toggle && width>1025 ? 'nav-toggle' : ''}}">
+    <ul class="nav-vertical {{globalService.navClicked && width<=1025 ? 'nav-responsive': globalService.toggle && width>1025? 'nav-toggle' : ''}}">
+      <li class="nav-name">
+        <a href="#">Admin</a>
+        <div class="btn-nav" (click)="onNav()"><i class="ion-navicon-round"></i></div>
+      </li>
+      <li class="nav-profile">
+        <div class="profile">
+          <div class="profile-image">
+            <img [src]="(userData | async)?.imgUrl || defaultImg" alt="avatar" (click)="modal.open()">
+            <modal #modal>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title"><strong>Profile Settings</strong></h4>
+                </modal-header>
+                <modal-body>
+                  <div class="input-group change-profile">
+                    <span class="input-group-addon" id="basic-addon1">Username</span>
+                    <input autofocus type="text" class="form-control" #newUsername placeholder="Kernel the Robot" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group change-profile">
+                    <span class="input-group-addon" id="basic-addon1">Image URL</span>
+                    <input type="text" class="form-control" #newImgUrl placeholder="http://abc.com/def.jpg" aria-describedby="basic-addon1">
+                  </div>
+                </modal-body>
+                <modal-footer>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
+                  <button type="button" class="btn btn-primary" (click)="changeProfile(newUsername.value, newImgUrl.value)">Save</button>
+                </modal-footer>
+            </modal>
+          </div>
+          <div class="profile-data">{{ (userData | async)?.username || "USER" }} The Handsome</div>
+          <div class="profile-control"></div>
+        </div>
+      </li>
+      <li class="nav-title title-nav">Navigation</li>
+      <li class="nav-title nav-title-nav {{router.url=='/page' ? 'nav-chosen' : ''}}" (click)="navRoute('/page')"><i class="ion-android-desktop"></i><span>Dashboard</span></li>
+      <li class="nav-title nav-title-nav {{router.url=='/page/ticket' ? 'nav-chosen' : ''}}" (click)="navRoute('/page/ticket')"><i class="ion-clipboard"></i><span>Tickets</span></li>
+      <li class="nav-title nav-title-nav {{router.url=='/page/chat' ? 'nav-chosen' : ''}}" (click)="navRoute('/page/chat')"><i class="ion-ios-chatboxes"></i><span>Chats</span></li>
+    </ul>
+  </div>
+  <ul class="page-navigation {{globalService.toggle && width>1025 ? 'page-nav-toggle' : ''}}">
+    <li class="min" (click)="onToggle()"><i class="{{globalService.toggle? 'ion-arrow-right-b' : 'ion-arrow-left-b'}}"></i></li>
+    <li (click)="onClickSignOut()"><i class="ion-power"></i></li>
+    <li><div class="informer">3</div><i class="ion-email"></i></li>
+    <li (click)="navRoute('/page/chat')"><div class="informer" *ngIf="unread>0">{{unread}}</div><i class="ion-chatbubble-working"></i></li>
+  </ul>
+</div>
+<div class="signout-window {{signOutShowed ? 'open' : ''}}">
+  <div class="signout-window-comp">
+    <div class="signout-window-title"><span><i class="ion-android-exit"></i></span>&nbsp;Log Out?</div>
+    <div class="signout-window-text">
+      <p>Are you sure you want to log out?</p>
+      <p>Press No if you want to continue to work. Press Yes to logout.</p>
+    </div>
+    <div class="signout-window-btn">
+      <div class="pull-right">
+        <button type="button" class="btn btn-success" (click)="onSignOut()">Yes</button>
+        <button type="button" class="btn btn-default" (click)="onClickSignOut()">No</button>
+      </div>
+    </div>
+  </div>
+</div>

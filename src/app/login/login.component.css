@@ -1,0 +1,103 @@
+.login-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./img/bg.png');
+  background-repeat: repeat;
+}
+
+.login-title {
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.login-body {
+  display: block;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-top: calc(50vh - 190px);
+  width: 400px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  color: #ccc;
+  overflow: hidden;
+}
+
+.login-body input {
+  position: relative;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ccc;
+  border: 0px;
+  margin-bottom: 15px;
+}
+
+.login-body button {
+  position: relative;
+  padding: 4px 15px;
+  border-radius: 0;
+  text-align: center;
+}
+
+#btn-login {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#btn-reg {
+  margin-bottom: 15px;
+}
+
+.login-or {
+  width: 40px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #FFF;
+  margin: 25px auto;
+  text-align: center;
+  position: relative;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 25px;
+}
+
+.login-or:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  top: -10px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+.login-or:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  bottom: -10px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+.alert-danger {
+  padding: 10px !important;
+  text-align: center;
+}
+
+@media screen and (max-width: 410px) {
+  .login-body {
+    width: 300px;
+  }
+}

@@ -1,0 +1,369 @@
+.navgation {
+  width: 100%;
+  float: left;
+  min-height: 100%;
+  position: relative;
+  background-color: #1b1e24;
+}
+
+.page-sidebar {
+  position: fixed;
+  width: 220px;
+  float: left;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+}
+
+div.nav-toggle {
+  width: 50px !important;
+}
+
+ul.nav-toggle {
+  width: 50px;
+  overflow: hidden;
+}
+
+ul.nav-toggle .nav-name {
+  display: none;
+}
+
+ul.nav-toggle .title-nav {
+  display: none;
+}
+
+ul.nav-toggle li span {
+  display: none;
+}
+
+ul.nav-toggle .profile-data {
+  display: none;
+}
+
+ul.nav-toggle .nav-profile {
+  height: 50px !important;
+  padding: 10px;
+}
+
+ul.nav-toggle .nav-profile .profile {
+  padding: 0;
+}
+
+ul.nav-toggle .profile-image img {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #fff;
+  border-radius: 20%;
+  margin-bottom: 0;
+}
+
+.nav-vertical {
+  background-color: #1b1e24;
+  height: 100%;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  list-style: none;
+  display: block;
+  z-index: 3;
+  position: relative;
+}
+
+.nav-vertical li {
+  color: #fff;
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  border-bottom: 1px solid #17191e;
+}
+
+.nav-name {
+  background-color: #1caf9a;
+  text-align: center;
+}
+
+.nav-name a {
+  display: block;
+  float: left;
+  padding: 15px 10px 15px 10px;
+  font-weight: 400;
+  line-height: 19px;
+  font-size: 25px;
+  border-bottom: 0px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  text-decoration: none;
+  vertical-align: text-bottom;
+}
+
+.nav-name .btn-nav {
+  width: 50px;
+  height: 50px;
+  display: block;
+  float: right;
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  transition: background-color 0.5s ease;
+  display: none;
+}
+
+.nav-name .btn-nav:hover {
+  background-color: #080a0e;
+  cursor: pointer;
+}
+
+.nav-name .btn-nav i {
+  font-size: 25px;
+}
+
+ul.nav-vertical li.nav-profile {
+  height: 176px;
+  background: #080a0e;
+}
+
+.profile {
+  padding: 15px 10px;
+  position: relative;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.profile-image:hover {
+  cursor: pointer;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #fff;
+  border-radius: 20%;
+  margin-bottom: 20px;
+}
+
+.profile-data {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.nav-vertical li.nav-title {
+  position: relative;
+  padding: 15px 15px 20px 15px;
+  line-height: 20px;
+  font-weight: 300;
+  font-size: 13px;
+  color: #8b91a0;
+  vertical-align: text-bottom;
+}
+
+.nav-title i {
+  font-size: 18px;
+  margin-right: 12px;
+  vertical-align: baseline;
+  height: 50px;
+  width: 50px;
+}
+
+.nav-title {
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.nav-title-nav:hover {
+  color: white !important;
+  background-color: #262a33;
+  cursor: pointer;
+}
+
+.nav-title-nav.active {
+  background-color: #1caf9a;
+}
+
+/* Horizontal Navi */
+
+.page-navigation {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  z-index: 2;
+  background-color: #1d2127;
+  display: block;
+  padding: 0;
+  margin-bottom: 0px;
+}
+
+.page-navigation li {
+  padding: 15px 10px;
+  text-align: center;
+  width: 50px;
+  line-height: 20px;
+  font-size: 18px;
+  position: relative;
+  margin: 0;
+  float: right;
+  list-style: none;
+  color: #fff;
+  vertical-align: text-bottom;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.page-navigation li:hover {
+  background-color: #262a33;
+  color: #8b91a0;
+  cursor: pointer;
+}
+
+.page-navigation li i {
+  vertical-align: baseline;
+}
+
+.page-navigation li.min {
+  float: left;
+  margin-left: 220px;
+}
+
+ul.page-nav-toggle  li.min {
+  margin-left: 50px;
+  z-index: 5;
+}
+
+.page-navigation .informer {
+  left: auto;
+  bottom: auto;
+  right: 1px;
+  top: 5px;
+  background: #1caf9a;
+  font-size: 11px;
+  position: absolute;
+  line-height: 20px;
+  text-align: center;
+  padding: 0px 5px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.change-profile span {
+  background-color: rgb(51, 122, 183);
+  color: white;
+}
+
+.change-profile {
+  margin-bottom: 10px;
+}
+
+.signout-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+div.signout-window.open {
+  display: block;
+}
+
+.nav-chosen, .nav-chosen:hover {
+  background-color: rgb(28, 175, 154);
+  color: white !important;
+}
+
+
+.signout-window-comp {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  width: 100%;
+  color: #fff;
+}
+
+.signout-window-title {
+  margin-left: 25%;
+  width: 50%;
+  float: left;
+  padding: 10px 0 0;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.signout-window-text, .signout-window-btn {
+  margin-left: 25%;
+  width: 50%;
+  padding: 10px 0 0;
+  line-height: 17px;
+}
+
+.signout-window-text p {
+  margin-bottom: 0;
+}
+
+.signout-window-btn btn {
+  margin-left: 5px;
+  border-radius: 0;
+}
+
+.signout-window-text {
+  font-size: 12px;
+}
+
+@media screen and (max-width:1025px) {
+  .page-sidebar {
+    width: 100%;
+    float: left;
+    height: auto;
+  }
+
+  .nav-vertical {
+    height: auto;
+    width: 100%;
+  }
+
+  div.nav-responsive {
+    z-index: 4;
+  }
+
+  .page-navigation {
+    margin-top: 50px;
+    z-index: 3;
+  }
+
+  ul.nav-vertical li:not(:first-child) {
+    display: none;
+  }
+
+  ul.nav-responsive li:not(:first-child) {
+    display: block;
+  }
+
+  .page-navigation li.min {
+    display: none;
+  }
+
+  .nav-name .btn-nav {
+    display: block;
+  }
+
+  .page-sidebar {
+    position: absolute;
+  }
+
+}
