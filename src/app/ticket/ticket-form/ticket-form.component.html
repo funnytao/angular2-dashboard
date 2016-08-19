@@ -1,0 +1,82 @@
+<div class="col-md-12">
+  <form class="ticket-form">
+    <div class="ticket-form-panel">
+      <div class="ticket-panel-title">
+        <h3><i class="ion-wrench"></i>&nbsp;New Ticket
+          <button class="btn btn-default pull-right" type="button" (click)="router.navigate(['/page/ticket'])">
+            <i class="ion-close"></i>
+          </button>
+        </h3>
+      </div>
+      <div class="ticket-panel-body">
+        <div *ngIf="submitted" class="alert alert-success" role="alert">
+          <a class="alert-link">Ticket Submitted! Now redirect to ticket list...</a>
+        </div>
+        <div *ngIf="error.length>0" class="alert alert-danger" role="alert">
+          <a class="alert-link">{{error}}</a>
+        </div>
+        <div class="form-group row">
+          <label for="ticket-form-title" class="col-md-3 col-xs-12 ticket-form-title">Title</label>
+          <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion-edit"></i></span>
+              <input [(ngModel)]="form.title" name="title" type="text" class="form-control" id="ticket-form-title" aria-describedby="basic-addon3">
+            </div>
+            <span class="help-text">This is the title of the problem</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-xs-12 ticket-form-title">Date</label>
+          <div class="col-md-6 col-xs-12">
+            <div class="input-group" id="datePicker1">
+              <span class="input-group-addon add-on btn-datepicker" (click)="formDate.focus()"><i class="ion-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+              <input [(ngModel)]="form.date" #formDate [value]="form.date" name="date" data-format="MM/dd/yyyy" type="text" class="form-control">
+            </div>
+            <span class="help-text">Date format should be mm/dd/yyyy</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ticket-form-customer" class="col-md-3 col-xs-12 ticket-form-title">Customer</label>
+          <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion-person"></i></span>
+              <input [(ngModel)]="form.customer" name="customer" type="text" class="form-control" id="ticket-form-customer" aria-describedby="basic-addon3">
+            </div>
+            <span class="help-text">Customer name</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ticket-form-email" class="col-md-3 col-xs-12 ticket-form-title">Email</label>
+          <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion-android-mail"></i></span>
+              <input  [(ngModel)]="form.email" name="email" type="text" class="form-control" id="ticket-form-email" aria-describedby="basic-addon3">
+            </div>
+            <span class="help-text">Customer Email</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ticket-form-employee" class="col-md-3 col-xs-12 ticket-form-title">Employee</label>
+          <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ion-android-contact"></i></span>
+              <input [(ngModel)]="form.employee" name="employee" type="text" class="form-control" id="ticket-form-employee" aria-describedby="basic-addon3">
+            </div>
+            <span class="help-text">Employee in charge</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ticket-form-text" class="col-md-3 col-xs-12 ticket-form-title">Desciprtion</label>
+          <div class="col-md-6 col-xs-12">
+            <textarea [(ngModel)]="form.description" name="description" rows="5" type="text" class="form-control" id="ticket-form-text"></textarea>
+            <span class="help-text">Problem description</span>
+          </div>
+        </div>
+      </div>
+      <div class="ticket-panel-body btn-panel">
+        <button type="button" class="btn btn-default" (click)="clearForm()">Clear Form</button>
+        <button type="button" class="btn btn-primary pull-right" (click)="onSubmit(formDate.value)">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

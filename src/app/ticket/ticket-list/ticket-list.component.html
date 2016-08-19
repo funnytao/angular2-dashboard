@@ -1,0 +1,112 @@
+<div class="ticket-panel">
+<div class="ticket-panel-title">
+  <h3><span><i class="ion-compose"></i></span>&nbsp;Issue Tickets</h3>
+</div>
+<div class="ticket-panel-body">
+  <div class="ticket-list">
+    <div class="ticket-tool">
+      <div class="ticket-new"><button class="btn btn-danger" type="button" (click)="router.navigate(['/page/ticket/new'])">New Ticket</button></div>
+      <div class="ticket-search input-group input-append date" id="datePicker1">
+        <input data-format="MM/dd/yyyy" type="text" (keyup)="filterBy(filterValue, filter)" #filterValue class="form-control" name="search" placeholder="Search...">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-warning dropdown-toggle btn-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{filter}} <span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li (click)="onFilterChange('filter')"><a>filter</a></li>
+            <li (click)="onFilterChange('employee')"><a>employee</a></li>
+            <li (click)="onFilterChange('customer')"><a>customer</a></li>
+            <li (click)="onFilterChange('email')"><a>email</a></li>
+            <li (click)="onFilterChange('title')"><a>title</a></li>
+            <li role="separator" class="divider"></li>
+            <li (click)="filterBy(filterValue, 'active')"><a>active</a></li>
+            <li (click)="filterBy(filterValue, 'closed')"><a>closed</a></li>
+          </ul>
+        </div>
+        <span (click)="showDatePicker()" class="input-group-addon add-on btn-datepicker"><i class="ion-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+      </div>
+    </div>
+    <div class="ticket-list-panel" *ngIf="tickets">
+      <div class="ticket-list-heading">
+        <div class="ticket-employee" (click)="queryBy('employee')">Employee</div>
+        <div class="ticket-customer" (click)="queryBy('customer')">Customer</div>
+        <div class="ticket-title" (click)="queryBy('title')">Title</div>
+        <div class="ticket-date" (click)="queryBy('start_date')">Date</div>
+      </div>
+      <div  *ngFor="let ticket of tickets | orderBy : [order, 'id'] | myfilter: [filter, filterValue.value]; let i = index">
+        <div *ngIf="i>=ticketsPerPage*(currentPage-1) && i<ticketsPerPage*(currentPage)" class="ticket-list-comp {{ticket.end_date =='active' ? '' : 'closed'}}" (click)="viewTicket(ticket)">
+          <div class="ticket-employee">{{ticket.employee}}</div>
+          <div class="ticket-customer">{{ticket.customer}}</div>
+          <div class="ticket-title">{{ticket.title}}</div>
+          <div class="ticket-date">{{ticket.start_date | dateFormat}}</div>
+        </div>
+      </div>
+      <div class="ticket-list-comp ticket-nav">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" (click)="onPageNav(-4)"><i class="ion-ios-arrow-left"></i></button>
+          <button type="button" class="btn {{currentPage==pageTag ? 'btn-primary' : 'btn-default'}}" (click)="onPageChange(pageTag)">{{pageTag}}</button>
+          <button *ngIf="pageTag+1<=maxPage()" type="button" class="btn {{currentPage==pageTag+1 ? 'btn-primary' : 'btn-default'}}" (click)="onPageChange(pageTag+1)">{{pageTag+1}}</button>
+          <button *ngIf="pageTag+2<=maxPage()" type="button" class="btn {{currentPage==pageTag+2 ? 'btn-primary' : 'btn-default'}}" (click)="onPageChange(pageTag+2)">{{pageTag+2}}</button>
+          <button *ngIf="pageTag+3<=maxPage()" type="button" class="btn {{currentPage==pageTag+3 ? 'btn-primary' : 'btn-default'}}" (click)="onPageChange(pageTag+3)">{{pageTag+3}}</button>
+          <button type="button" class="btn btn-default" (click)="onPageNav(4)"><i class="ion-ios-arrow-right"></i></button>
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ticketsPerPage}}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li (click)="pageSetup(5)"><a>5</a></li>
+            <li (click)="pageSetup(10)"><a>10</a></li>
+            <li (click)="pageSetup(15)"><a>15</a></li>
+            <li (click)="pageSetup(20)"><a>20</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticket-detail" *ngIf="ticket_id==-1">
+    <div class="ticket-content">
+      <div class="ticket-heading">
+        <h3>Please click a ticket to view detail.</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticket-detail" *ngIf="ticket_detail">
+    <div class="ticket-content">
+      <div class="ticket-heading">
+        <div class="pull-left">
+          <h3>
+            <i class="ion-android-contact"></i>
+            &nbsp;{{ticket_detail.customer}}&nbsp;
+            <small>{{ticket_detail.email}}</small>
+          </h3>
+        </div>
+        <div class="pull-right">
+          <span class="label label-warning">{{ticket_detail.employee}}</span>
+          <span class="label label-success" *ngIf="ticket_detail.end_date=='active'">Active</span>
+          <span class="label label-default" *ngIf="ticket_detail.end_date!='active'">closed on {{ticket_detail.end_date | dateFormat}}</span>
+        </div>
+      </div>
+      <div class="ticket-description">
+        <h3>{{ticket_detail.title}}<small class="pull-right"><i class="ion-android-time"></i>&nbsp;{{ticket_detail.start_date | dateFormat}}</small></h3>
+        <p>{{ticket_detail.description}}</p>
+      </div>
+      <div class="ticket-heading" *ngIf="ticket_detail.end_date=='active' || ticket_detail.reply">
+        <h4>Reply</h4>
+      </div>
+      <div class="ticket-reply" *ngIf="ticket_detail.reply">
+        <div *ngFor="let reply of ticket_detail.reply">
+          <p><strong>{{reply.username}}:</strong>&nbsp;{{reply.content}}</p>
+        </div>
+      </div>
+      <div class="ticket-manage input-group" *ngIf="ticket_detail.end_date=='active'">
+        <label class="input-group-addon" #usernameLabel for="reply-label">{{(username | async)?.username}}</label>
+        <input type="text" id="reply-label" #replyContent class="form-control" placeholder="Reply...">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button" (click)="comment(usernameLabel.value, replyContent)">Send</button>
+        </span>
+      </div>
+    </div>
+    <button type="button" class="btn btn-danger pull-left btn-solve" *ngIf="ticket_detail.end_date=='active'" (click)="onSolve()">Mark as Solved</button>
+  </div>
+</div>
+</div>

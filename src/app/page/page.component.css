@@ -1,0 +1,111 @@
+.page-dashboard {
+  position: relative;;
+  margin-left: 220px;
+  min-height: 100%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  padding-top: 70px;
+}
+
+div.page-toggle {
+  margin-left: 50px;
+}
+
+.map-div {
+  overflow: hidden;
+}
+
+#world-map {
+  width: 100%;
+  height: 450px;
+}
+
+.employee-bar {
+  padding: 20px;
+}
+
+@media screen and (max-width:1025px) {
+  .page-dashboard {
+    margin-left: 0;
+    padding-top: 120px;
+  }
+}
+
+.progress {
+  margin-bottom: 8px;
+}
+
+.panel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: white;
+  border-radius: 0px;
+  border: 0px;
+  border-top: 1px solid #E5E5E5;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+div.panel .panel-heading {
+  float: left;
+  background: #F5F5F5;
+  border-color: #E5E5E5;
+  color: #333;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+}
+
+.widget {
+  height: 130px;
+  width: 100%;
+  float: left;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 10px 0px;
+  background-color: white;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.widget-icon {
+  height: 100%;
+  float: left;
+  width: 70px;
+  margin-left: 10px;
+  padding: 5px 10px 0px 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+.widget-data {
+  padding-left: 90px;
+}
+
+.widget-data-int {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.widget-data-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.widget-data-subtitle {
+  fot-size: 12px;
+  font-weight: normal;
+  color: #1b1e24;
+}
+
+.widget-data div {
+  width: 100%;
+}
+
+.widget-icon i {
+  font-size: 70px;
+}
+
+.customer-chart {
+  max-height: 500px;
+}
