@@ -29,14 +29,15 @@ export class SidebarComponent implements OnInit {
     this.userData = af.database.object(url);
     af.database.object(url).subscribe(num => {
       this.unread = num.unread;
-      console.log(this.unread);
+      // console.log(this.unread);
     });
     af.database.object(url).subscribe(item => {
-      if (!item.username) {
+      if (!item.uid) {
         this.af.database.object(url).update({
-          username: "New User",
+          username: item.username || "New User",
           imgUrl: this.defaultImg,
-          uid: localStorage.getItem('uid')
+          uid: localStorage.getItem('uid'),
+          unread: 0
         });
       }
     });

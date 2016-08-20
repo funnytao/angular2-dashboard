@@ -41,6 +41,21 @@ div.page-toggle {
   margin: 0;
 }
 
+.chat-panel-title i {
+  font-size: 20px;
+}
+
+.chat-panel-title .pull-right {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  padding: 0 10px;
+}
+
+.chat-panel-title .pull-right:hover {
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+
 .chat-message {
   margin-left: 0;
   margin-right: 300px;
@@ -54,6 +69,18 @@ div.page-toggle {
   height: calc(100vh - 106px);
   background: rgba(0, 0, 0, 0.02);
   border-left: 1px solid #DDD;
+}
+
+@media screen and (max-width: 700px) {
+  .chat-contact {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .chat-message {
+    margin-right: 0px;
+  }
 }
 
 .message-list {
@@ -88,6 +115,10 @@ div.page-toggle {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #D5D5D5;
+}
+
+.message-frame .text.doubleLine {
+  background: #F6F6F6;
 }
 
 .message-frame .heading {
@@ -208,4 +239,8 @@ span.friend_list {
 
 a.friend_list:hover {
   cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
 }

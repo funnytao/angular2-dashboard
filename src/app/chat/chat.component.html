@@ -1,9 +1,10 @@
 <div class="page-dashboard {{globalService.toggle && globalService.width>1025 ? 'page-toggle' : ''}}">
   <div class="chat-panel">
     <div class="chat-panel-title">
-      <h3><i class="ion-chatbubbles"></i>&nbsp;Chat</h3>
+      <h3 class="pull-left"><i class="ion-chatbubbles"></i>&nbsp;Chat</h3>
+      <div (click)="friendToggle=!friendToggle" class="pull-right {{globalService.width>700 ? 'nav-toggle' : ''}}"><i class="ion-navicon-round"></i></div>
     </div>
-    <div class="chat-contact">
+    <div class="chat-contact {{friendToggle?'nav-toggle':''}}">
       <ul class="nav nav-pills nav-justified">
         <li role="presentation" class="{{menu=='Friends'?'active':''}}" (click)="menu='Friends'"><a>Friends</a></li>
         <li role="presentation" class="{{menu=='Search'?'active':''}}" (click)="menu='Search'"><a>Search</a></li>
@@ -31,12 +32,12 @@
       </div>
       <div *ngIf="chat_id.length>0">
         <div class="message-list" *ngIf="message_list.length>0">
-          <div *ngFor="let msn of message_list">
+          <div *ngFor="let msn of message_list; let i = index">
             <div class="message-frame {{msn.name!=receiver.username?'host':''}}">
               <div class="image">
                 <img src="{{msn.imgUrl}}" alt="host-img">
               </div>
-              <div class="text">
+              <div class="text {{i%2==0 ? 'doubleLine' : ''}}">
                 <div class="heading">
                   <a href="#">{{msn.name}}</a>
                   <span class="date">{{dateModifier(msn.date)}}</span>

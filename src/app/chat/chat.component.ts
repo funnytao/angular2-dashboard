@@ -24,6 +24,7 @@ export class ChatComponent implements OnInit {
   messageText = '';
   user_id = '';
   unread = 0;
+  friendToggle = false;
 
   constructor(private globalService: GlobalService, public af: AngularFire) {
     af.database.object('private/'+localStorage.getItem('uid')).update({unread: 0});
@@ -32,7 +33,7 @@ export class ChatComponent implements OnInit {
     });
     af.database.object('/private/'+localStorage.getItem('uid')).subscribe(user => {
       this.friend_list = user.friend_list || {};
-      console.log(this.friend_list);
+      // console.log(this.friend_list);
     });
     this.user_id = localStorage.getItem('uid');
   }
@@ -49,13 +50,15 @@ export class ChatComponent implements OnInit {
       this.friend_list[value.uid] = {
         username: value.username,
         imgUrl: value.imgUrl,
-        uid: value.uid
+        uid: value.uid,
+        lastText: '',
+        updateTime: Date.now()
       };
     }
     else {
       delete this.friend_list[value.uid];
     }
-    console.log(this.friend_list);
+    // console.log(this.friend_list);
     this.af.database.object('/private/'+localStorage.getItem('uid')).update({
       friend_list: this.friend_list
     });
@@ -67,7 +70,7 @@ export class ChatComponent implements OnInit {
     this.chat_id = this.receiver['uid']>localStorage.getItem('uid') ? localStorage.getItem('uid')+this.receiver['uid'] : this.receiver['uid']+localStorage.getItem('uid');
     this.af.database.object('shared/chat/'+this.chat_id).subscribe(chat => {
       this.message_list = chat;
-      console.log(chat);
+      // console.log(chat);
     });
     this.af.database.object('private/'+this.receiver['uid']).subscribe(num => {
       this.unread = num.unread || this.unread;

@@ -20,6 +20,8 @@ export class DashboardComponent implements AfterViewInit {
   @ViewChild('upload')
     modal: ModalComponent;
 
+  unread = 0;
+  employeeNum = 0;
   target = '';
   item: FirebaseListObservable<any>;
   toggle: boolean;
@@ -32,8 +34,13 @@ export class DashboardComponent implements AfterViewInit {
       this.router.navigate(['/login']);
       console.log('redirectd');
     }
-
+    af.database.object('private/'+localStorage.getItem('uid')).subscribe(u => {
+      this.unread = u.unread;
+    });
     this.item = af.database.list('shared/employeeMap');
+    af.database.list('private').subscribe(em => {
+      this.employeeNum = em.length;
+    });
   }
 
   renderMap(item:any) {
