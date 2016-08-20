@@ -1,6 +1,7 @@
 # Dashboard
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
+This is a dashboard application built with Angular 2. This application displays data from Firebase in real-time and allows users to upload their own CSV files, and modify the information of tickets, with ability to search/filter/open/close tickets. Login/Register function available. Also equipped with a simple chat function. 
 
 ## Installation
 
@@ -33,7 +34,5 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# angular2-dashboard
 
 # angular2-dashboard
-
