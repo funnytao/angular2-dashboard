@@ -51,5 +51,13 @@
   },
   "description": "This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.",
   "main": "angular-cli-build.js",
-  "author": ""
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funnytao/angular2-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/funnytao/angular2-dashboard/issues"
+  },
+  "homepage": "https://github.com/funnytao/angular2-dashboard#readme"
 }
