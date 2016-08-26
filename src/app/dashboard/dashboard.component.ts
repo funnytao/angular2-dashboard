@@ -33,7 +33,6 @@ export class DashboardComponent implements AfterViewInit {
 
   constructor(public af: AngularFire, private _elRef: ElementRef, private globalService: GlobalService, private router: Router) {
     if (localStorage.getItem('uid')=='null' || localStorage.getItem('uid')=='') {
-      localStorage.setItem('uid', '');
       this.router.navigate(['/login']);
       console.log('redirectd');
     }
