@@ -88,4 +88,8 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([addr]);
   }
 
+  redirectTo(url) {
+    window.location.href = url;
+  }
+
 }

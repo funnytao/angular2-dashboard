@@ -37,6 +37,9 @@
       <li class="nav-title nav-title-nav {{router.url=='/page' ? 'nav-chosen' : ''}}" (click)="navRoute('/page')"><i class="ion-android-desktop"></i><span>Dashboard</span></li>
       <li class="nav-title nav-title-nav {{router.url=='/page/ticket' ? 'nav-chosen' : ''}}" (click)="navRoute('/page/ticket')"><i class="ion-clipboard"></i><span>Tickets</span></li>
       <li class="nav-title nav-title-nav {{router.url=='/page/chat' ? 'nav-chosen' : ''}}" (click)="navRoute('/page/chat')"><i class="ion-ios-chatboxes"></i><span>Chats</span></li>
+      <li class="nav-title nav-title-nav" (click)="redirectTo('http://www.funnytoto.com/#/')"><i class="ion-android-playstore"></i><span>Portfolios</span></li>
+      <li class="nav-title nav-title-nav" (click)="redirectTo('https://github.com/funnytao/angular2-dashboard')"><i class="ion-social-github"></i><span>Github</span></li>
+      <li class="nav-title nav-title-nav" (click)="redirectTo('https://www.linkedin.com/in/tao-liu-168a65ab')"><i class="ion-social-linkedin"></i><span>Linkedin</span></li>
     </ul>
   </div>
   <ul class="page-navigation {{globalService.toggle && width>1025 ? 'page-nav-toggle' : ''}}">

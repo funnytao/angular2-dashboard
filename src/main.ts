@@ -4,6 +4,7 @@ import { AppComponent, environment } from './app/';
 import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
 import { GlobalService } from './app/shared/global.service';
+import { HTTP_PROVIDERS } from '@angular/http';
 
 if (environment.production) {
   enableProdMode();
@@ -11,6 +12,7 @@ if (environment.production) {
 
 bootstrap(AppComponent, [
   GlobalService,
+  HTTP_PROVIDERS,
   APP_ROUTER_PROVIDERS,
   FIREBASE_PROVIDERS,
   // Initialize Firebase app
