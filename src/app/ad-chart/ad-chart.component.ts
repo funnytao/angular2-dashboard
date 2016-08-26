@@ -10,7 +10,6 @@ import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
   moduleId: module.id,
   selector: 'app-ad-chart',
   templateUrl: 'ad-chart.component.html',
-  styleUrls: ['ad-chart.component.css'],
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class AdChartComponent implements OnInit {

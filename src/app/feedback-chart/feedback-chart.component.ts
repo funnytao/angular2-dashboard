@@ -10,7 +10,6 @@ import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
   moduleId: module.id,
   selector: 'app-feedback-chart',
   templateUrl: 'feedback-chart.component.html',
-  styleUrls: ['feedback-chart.component.css'],
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class FeedbackChartComponent implements OnInit {

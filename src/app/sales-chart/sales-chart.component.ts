@@ -10,7 +10,6 @@ import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
   moduleId: module.id,
   selector: 'app-sales-chart',
   templateUrl: 'sales-chart.component.html',
-  styleUrls: ['sales-chart.component.css'],
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class SalesChartComponent implements OnInit {
