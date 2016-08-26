@@ -1,8 +1,11 @@
 import { Component, AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { GlobalService } from '../shared/global.service';
+import { FeedbackChartComponent } from '../feedback-chart/feedback-chart.component';
+import { AdChartComponent } from '../ad-chart/ad-chart.component';
 import { CustomerChartComponent } from '../customer-chart/customer-chart.component';
 import { IssueChartComponent } from '../issue-chart/issue-chart.component';
+import { SalesChartComponent } from '../sales-chart/sales-chart.component';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { MODAL_DIRECTIVES, ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { UploadComponent } from '../upload/upload.component';
@@ -13,7 +16,7 @@ declare var jQuery: any;
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [ CustomerChartComponent, IssueChartComponent, UploadComponent, MODAL_DIRECTIVES, ModalComponent ],
+  directives: [ FeedbackChartComponent, AdChartComponent, SalesChartComponent, CustomerChartComponent, IssueChartComponent, UploadComponent, MODAL_DIRECTIVES, ModalComponent ],
 })
 export class DashboardComponent implements AfterViewInit {
 

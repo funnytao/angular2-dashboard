@@ -9,7 +9,7 @@ import { UploadComponent } from './upload/upload.component';
 import { ChatComponent } from './chat/chat.component';
 
 export const routes: RouterConfig = [
-  { path: '', redirectTo: '/login', terminal: true },
+  { path: '', redirectTo: '/page', terminal: true },
   {
     path: 'page', component: PageComponent,
     children: [

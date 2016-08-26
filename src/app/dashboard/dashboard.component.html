@@ -26,6 +26,36 @@
   </div>
 
   <div class="row">
+    <div class="col-md-4">
+      <div class="panel chart-panel">
+        <div class="panel-heading">
+          <span>Sales</span>
+          <i class="ion-gear-b pull-right" (click)="prepareUpload('issueChart')"></i>
+        </div>
+        <div class="panel-body"><app-sales-chart></app-sales-chart></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel chart-panel">
+        <div class="panel-heading">
+          <span>AD Click</span>
+          <i class="ion-gear-b pull-right" (click)="prepareUpload('issueChart')"></i>
+        </div>
+        <div class="panel-body"><app-ad-chart></app-ad-chart></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel chart-panel">
+        <div class="panel-heading">
+          <span>Feedback</span>
+          <i class="ion-gear-b pull-right" (click)="prepareUpload('customerChart')"></i>
+        </div>
+        <div class="panel-body"><app-feedback-chart></app-feedback-chart></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-6">
       <div class="panel chart-panel">
         <div class="panel-heading">
