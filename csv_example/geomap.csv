@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 country,population
 AF,7601
 AL,8226
@@ -8,4 +9,16 @@ AM,8863
 AU,916
 AT,5477
 AZ,4140
+=======
+country,population
+AF,7601
+AL,8226
+DZ,5784
+AO,2581
+AR,9480
+AM,8863
+AU,916
+AT,5477
+AZ,4140
+>>>>>>> bed40c0d8716cecfbe8bb455c0a4747ffe8744e1
 BS,7135
