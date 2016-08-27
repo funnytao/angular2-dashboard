@@ -26,6 +26,10 @@ export class LoginComponent {
   };
 
   constructor(public af: AngularFire, private router:Router, private globalService: GlobalService) {
+    if (localStorage.getItem('uid') && localStorage.getItem('uid').length>5) {
+      this.router.navigate(['/page']);
+      console.log('redirectd');
+    }
   }
 
   regFormValid() {

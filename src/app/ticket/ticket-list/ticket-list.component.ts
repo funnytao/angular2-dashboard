@@ -28,6 +28,7 @@ export class TicketListComponent implements AfterViewChecked  {
   ticket_length = 0;
   tickets = [];
   username: FirebaseObjectObservable<any>;
+  openTicket = 0;
   constructor(private globalService: GlobalService, public af: AngularFire, private router: Router) {
     var url = '/private/'+localStorage.getItem('uid');
     this.username = af.database.object(url);
@@ -35,6 +36,9 @@ export class TicketListComponent implements AfterViewChecked  {
       this.tickets = ticket;
       globalService.ticket_number = ticket.length;
       this.ticket_length = ticket.length;
+    });
+    af.database.object('/shared').subscribe(num => {
+      this.openTicket = num.openTicket;
     });
   }
 
@@ -105,6 +109,7 @@ export class TicketListComponent implements AfterViewChecked  {
     var datenow = Math.floor(Date.now()/1000);
     this.ticket_detail.end_date = datenow;
     this.af.database.object('/shared/ticket/'+this.ticket_id).update({ end_date: datenow });
+    this.af.database.object('/shared').update({ openTicket: this.openTicket-1 });
   }
 
   ngAfterViewChecked() {

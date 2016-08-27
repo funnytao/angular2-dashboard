@@ -24,11 +24,15 @@ export class TicketFormComponent implements OnInit  {
   submitted = false;
   ticket_length = 0;
   error = [];
+  openTicket = 0;
 
   constructor(private globalService: GlobalService, public af: AngularFire, private router: Router) {
     af.database.list('/shared/ticket').subscribe(ticket => {
       globalService.ticket_number = ticket.length;
       this.ticket_length = ticket.length;
+    });
+    af.database.object('/shared').subscribe(num => {
+      this.openTicket = num.openTicket;
     });
   }
 
@@ -62,6 +66,7 @@ export class TicketFormComponent implements OnInit  {
         start_date: new Date(this.form.date).getTime()/1000,
         end_date: 'active'
       });
+      this.af.database.object('/shared').update({ openTicket: this.openTicket+1 });
       this.submitted = true;
       setTimeout(()=> this.router.navigate(['/page/ticket']), 3000);
     }

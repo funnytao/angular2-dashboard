@@ -7,15 +7,20 @@ import { TicketListComponent } from './ticket/ticket-list/ticket-list.component'
 import { TicketFormComponent } from './ticket/ticket-form/ticket-form.component';
 import { UploadComponent } from './upload/upload.component';
 import { ChatComponent } from './chat/chat.component';
+import { KeyMetricComponent } from './key-metric/key-metric.component';
 
 export const routes: RouterConfig = [
-  { path: '', redirectTo: '/page', terminal: true },
+  { path: '', redirectTo: '/login', terminal: true },
   {
     path: 'page', component: PageComponent,
     children: [
       {
         path: '',
         component: DashboardComponent
+      },
+      {
+        path: 'keymetric',
+        component: KeyMetricComponent
       },
       {
         path: 'ticket',

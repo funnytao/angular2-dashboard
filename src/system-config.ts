@@ -89,6 +89,7 @@ const barrels: string[] = [
   'app/sales-chart',
   'app/ad-chart',
   'app/feedback-chart',
+  'app/key-metric',
   /** @cli-barrel */
 ];
 

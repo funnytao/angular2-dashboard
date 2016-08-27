@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { GlobalService } from '../shared/global.service';
 import { FeedbackChartComponent } from '../feedback-chart/feedback-chart.component';
@@ -13,12 +13,15 @@ declare var jQuery: any;
 
 @Component({
   moduleId: module.id,
-  selector: 'app-dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: ['dashboard.component.css'],
+  selector: 'app-key-metric',
+  templateUrl: 'key-metric.component.html',
+  styleUrls: ['key-metric.component.css'],
   directives: [ FeedbackChartComponent, AdChartComponent, SalesChartComponent, CustomerChartComponent, IssueChartComponent, UploadComponent, MODAL_DIRECTIVES, ModalComponent ],
 })
-export class DashboardComponent implements AfterViewInit {
+export class KeyMetricComponent implements OnInit {
+
+  ngOnInit() {
+  }
 
   @ViewChild('upload')
     modal: ModalComponent;
@@ -33,42 +36,6 @@ export class DashboardComponent implements AfterViewInit {
   openTicket = 0;
 
   constructor(public af: AngularFire, private _elRef: ElementRef, private globalService: GlobalService, private router: Router) {
-    if (!localStorage.getItem('uid').length || localStorage.getItem('uid').length<5) {
-      this.router.navigate(['/login']);
-      console.log('redirectd');
-    }
-    af.database.object('private/'+localStorage.getItem('uid')).subscribe(u => {
-      this.unread = u.unread;
-    });
-    this.item = af.database.list('shared/employeeMap');
-    af.database.list('private').subscribe(em => {
-      this.employeeNum = em.length;
-    });
-    af.database.object('/shared').subscribe(num => {
-      this.openTicket = num.openTicket;
-    });
-  }
-
-  renderMap(item:any) {
-    var mapData = item;
-    delete mapData.$key;
-    jQuery('#world-map').empty();
-    jQuery('#world-map').vectorMap({
-      map: 'world_mill',
-      backgroundColor: '#fff',
-      regionStyle: { initial: { fill: '#000000' } },
-      series: {
-        regions: [{
-          values: item,
-          scale: ['#00a6f1', '#003c58'],
-          normalizeFunction: 'polynomial',
-          attribute: 'fill',
-        }]
-      },
-      onRegionTipShow: function(e, el, code){
-        el.html(el.html()+' (Employee - '+item[code]+')');
-      }
-    });
   }
 
   prepareUpload(text) {
@@ -131,16 +98,6 @@ export class DashboardComponent implements AfterViewInit {
     jQuery('#fileinput').val('');
     jQuery('div.ezdz-dropzone').removeClass('ezdz-accept');
     jQuery('div.ezdz-dropzone').find('div').first().text('Drop a file');
-  }
-
-  ngAfterViewInit():any {
-    this.af.database.object('shared/employeeMap').subscribe(item=> {
-      this.renderMap(item);
-    });
-    jQuery('input[type="file"]').ezdz();
-    var clock = jQuery('.your-clock').FlipClock({});
-    var currentTime = (new Date().getHours()*60+new Date().getMinutes())*60+new Date().getSeconds();
-    clock.setTime(currentTime);
   }
 
 }

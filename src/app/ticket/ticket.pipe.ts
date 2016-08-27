@@ -9,6 +9,8 @@ export class DateFormatPipe implements PipeTransform {
     year = year.substring(2);
     var month = months[date.getMonth()];
     var day = date.getDate();
-    return ''+month+' '+day+', '+year;
+    var hours = date.getHours()<10?'0'+date.getHours():date.getHours()+'';
+    var minutes = date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()+'';
+    return ''+month+' '+day+', '+year+', '+hours+':'+minutes;
   }
 }

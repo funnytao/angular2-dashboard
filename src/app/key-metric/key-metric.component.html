@@ -1,29 +1,4 @@
 <div class="page-dashboard {{globalService.toggle && globalService.width>1025 ? 'page-toggle' : ''}}">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="widget">
-        <div class="widget-icon"><i class="ion-email"></i></div>
-        <div class="widget-data">
-          <div class="widget-data-int">{{openTicket}}</div>
-          <div class="widget-data-title">OPEN TICKETS</div>
-          <div class="widget-data-subtitle">In your issue-chart</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="widget">
-        <div class="widget-icon"><i class="ion-person"></i></div>
-        <div class="widget-data">
-          <div class="widget-data-int">{{ employeeNum }}</div>
-          <div class="widget-data-title">EMPLOYEES</div>
-          <div class="widget-data-subtitle">In the system</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="your-clock"></div>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-md-4">
@@ -56,7 +31,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="panel chart-panel">
         <div class="panel-heading">
           <span>Issues</span>
@@ -65,7 +40,9 @@
         <div class="panel-body"><app-issue-chart></app-issue-chart></div>
       </div>
     </div>
-    <div class="col-md-6">
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <div class="panel chart-panel">
         <div class="panel-heading">
           <span>Customers</span>
@@ -75,19 +52,6 @@
       </div>
     </div>
   </div>
-
-  <div class="row db-map">
-    <div class="col-md-12 map-div">
-      <div class="panel">
-        <div class="panel-heading">
-          <span>Employee Map</span>
-          <i class="ion-gear-b pull-right" (click)="prepareUpload('employeeMap')"></i>
-        </div>
-        <div class="panel-body"><div id="world-map"></div></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <modal #upload>
     <modal-header [show-close]="true">

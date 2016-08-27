@@ -31,7 +31,7 @@
         <div class="ticket-title" (click)="queryBy('title')">Title</div>
         <div class="ticket-date" (click)="queryBy('start_date')">Date</div>
       </div>
-      <div  *ngFor="let ticket of tickets | orderBy : [order, 'id'] | myfilter: [filter, filterValue.value]; let i = index">
+      <div  *ngFor="let ticket of tickets | orderBy : [order, 'start_date'] | myfilter: [filter, filterValue.value]; let i = index">
         <div *ngIf="i>=ticketsPerPage*(currentPage-1) && i<ticketsPerPage*(currentPage)" class="ticket-list-comp {{ticket.end_date =='active' ? '' : 'closed'}}" (click)="viewTicket(ticket)">
           <div class="ticket-employee">{{ticket.employee}}</div>
           <div class="ticket-customer">{{ticket.customer}}</div>
